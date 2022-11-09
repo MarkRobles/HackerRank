@@ -64,15 +64,48 @@ class Result
         return Math.Abs( result);
     }
 
+    /*
+    * Complete the 'plusMinus' function below.
+    *
+    * The function accepts INTEGER_ARRAY arr as parameter.
+    */
+    public static void plusMinus(List<int> arr)
+    {
+        //Count positive elements 
+      decimal PositiveItems =  arr.Count(x=> x > 0);
+        //Count negative elements
+        decimal NegativeItems = arr.Count(x => x < 0);
+        //Count zero elements
+        decimal ZeroItems = arr.Count(x => x == 0);
+        //Divide each one by N
+        decimal PositiveRatio =  decimal.Divide( PositiveItems ,decimal.Parse(arr.Count().ToString()));
+        decimal NegativeRatio = decimal.Divide(NegativeItems, decimal.Parse(arr.Count().ToString()));
+        decimal ZeroRatio = decimal.Divide(ZeroItems, decimal.Parse(arr.Count().ToString()));
+        //Print them with 6 decimal digits
+
+        Console.WriteLine(PositiveRatio.ToString("N6"));
+        Console.WriteLine(NegativeRatio.ToString("N6"));
+        Console.WriteLine(ZeroRatio.ToString("N6"));
+    }
+
 }
 
 class Solution
 {
     public static void Main(string[] args)
     {
-        DiagonalDifference();
+        //DiagonalDifference();
+        PlusMinus();
     }
 
+    public static void PlusMinus()
+    {
+        int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+        List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
+
+        Result.plusMinus(arr);
+    }
     private static void DiagonalDifference()
     {
         //TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
