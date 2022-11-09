@@ -70,6 +70,11 @@ class Solution
 {
     public static void Main(string[] args)
     {
+        DiagonalDifference();
+    }
+
+    private static void DiagonalDifference()
+    {
         //TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
         int n = Convert.ToInt32(Console.ReadLine().Trim());
@@ -83,8 +88,8 @@ class Solution
 
         int result = Result.diagonalDifference(arr);
 
-       Console.WriteLine(result);
-       Console.WriteLine("Presiona una tecla para finalizar");
+        Console.WriteLine(result);
+        Console.WriteLine("Presiona una tecla para finalizar");
         Console.ReadKey();
         //textWriter.WriteLine(result);
 
